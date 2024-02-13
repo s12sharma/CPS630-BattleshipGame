@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CPS630_Lab1.css">
+  <title>Battleship Game</title>
+</head>
+<body>
+  <div class="game-container">
+    <div class="button-container">
+      <button id="reset-btn">Restart Game</button>
+    </div>
+    <div class="ships-container">
+      <div class="ship" id="ship1" draggable="true"></div>
+      <div class="ship" id="ship2" draggable="true"></div>
+      <div class="ship" id="ship3" draggable="true"></div>
+      <div class="ship" id="ship4" draggable="true"></div>
+      <div class="ship" id="ship5" draggable="true"></div>
+      <div class="ship" id="ship6" draggable="true"></div>
+    </div>
+  
+    <div class="board-container">
+      <div class="board" id="user-board"></div>
+      <div class="counters">
+        <p id="pc-hits">PC Hits: 0</p>
+        <p id="pc-misses">PC Misses: 0</p>
+      </div>
+    </div>
+    <div class="board-container">
+      <div class="board" id="pc-board"></div>
+      <div class="counters">
+        <p id="player-hits">Player Hits: 0</p>
+        <p id="player-misses">Player Misses: 0</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add audio elements for hit and miss sounds -->
+  <audio id="hit-sound" src="hit-sound.wav"></audio>
+  <audio id="miss-sound" src="miss-sound.mp3"></audio>
+  
+  <script src="CPS630_Lab1.js"></script>
+</body>
+</html>
