@@ -271,7 +271,7 @@ function gameAlertIntro(message) {
 
     setTimeout(() => {
         alertContainer.remove();
-    }, 5000); // Remove the alert after 3 seconds
+    }, 6000); // Remove the alert after 3 seconds
 }
 
 function gameAlertWin(message) {
@@ -279,6 +279,9 @@ function gameAlertWin(message) {
     alertContainer.classList.add('alert');
     alertContainer.textContent = message;
     document.body.appendChild(alertContainer);
+
+    // Show reset button
+    document.getElementById('reset-btn').style.display = 'block';
 
     setTimeout(() => {
         alertContainer.remove();
@@ -298,6 +301,7 @@ function gameAlert(message) {
 
 
 function resetGame() {
+    document.getElementById('reset-btn').style.display = 'none';
     isPlayerTurn = true;
     playerHits = 0;
     playerMisses = 0;
