@@ -9,7 +9,7 @@ let hitSound = document.getElementById('hit-sound');
 let missSound = document.getElementById('miss-sound');
 
 document.addEventListener('DOMContentLoaded', () => {
-    gameAlertIntro("Welcome to Battleship! Please place your 6 ships on the grid to start the game.")
+    gameAlertIntro("Welcome to Battleship! Please place your 6 ships on the grid to start the game. The PC has also hidden 6 ships.")
     const userBoard = document.getElementById('user-board');
     const pcBoard = document.getElementById('pc-board');
 
@@ -282,7 +282,7 @@ function gameAlertWin(message) {
 
     setTimeout(() => {
         alertContainer.remove();
-    }, 4000); // Remove the alert after 3 seconds
+    }, 5000); // Remove the alert after 3 seconds
 }
 
 function gameAlert(message) {

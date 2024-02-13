@@ -75,7 +75,7 @@ body {
 .ship {
   width: 30px; /* Adjust width to match the image */
   height: 30px; /* Adjust height to match the image */
-  background-image: url('https://img.freepik.com/free-vector/sailboat-travel-icon-isolated-design_24640-134572.jpg?w=1060&t=st=1707528136~exp=1707528736~hmac=0ab1e24eab7646c6d0790bb8e027bd9bdc05f8f9dd3c4783f1ca1731915e853a');
+  background-image: url('https://i.pinimg.com/474x/6d/8b/f5/6d8bf5580b0fa7c81ced50b53d5c8247.jpg');
   background-size: cover; /* Ensure the background image covers the entire element */
   background-repeat: no-repeat; /* Prevent background image from repeating */
   margin: 2px;
