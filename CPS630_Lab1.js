@@ -9,6 +9,7 @@ let hitSound = document.getElementById('hit-sound');
 let missSound = document.getElementById('miss-sound');
 
 document.addEventListener('DOMContentLoaded', () => {
+    gameAlertIntro("Welcome to Battleship! Please place your 6 ships on the grid to start the game.")
     const userBoard = document.getElementById('user-board');
     const pcBoard = document.getElementById('pc-board');
 
@@ -150,7 +151,7 @@ function handlePlayerTurn(row, col, pcGrid) {
         updateHitMissCounters();
         hitSound.play(); // Play hit sound
         if (playerHits === 6) {
-            gameAlert("Player wins!");
+            gameAlertWin("Player wins! Press restart to play again.");
             disableAllClickEvents(pcGrid);
             disableAllClickEvents(playerGrid);
             return;
@@ -187,7 +188,7 @@ function handlePCTurn(playerGrid) {
         hitSound.play(); // Play hit sound
 
         if (pcHits === 6) {
-            gameAlert("PC wins!");
+            gameAlertWin("PC wins! Press restart to play again.");
             disableAllClickEvents(pcGrid);
             disableAllClickEvents(playerGrid);
             return; 
@@ -262,9 +263,39 @@ function updateHitMissCounters() {
     pcMissesElement.textContent = `PC Misses: ${pcMisses}`;
 }
 
-function gameAlert(message) {
-    alert(message);
+function gameAlertIntro(message) {
+    const alertContainer = document.createElement('div');
+    alertContainer.classList.add('alert');
+    alertContainer.textContent = message;
+    document.body.appendChild(alertContainer);
+
+    setTimeout(() => {
+        alertContainer.remove();
+    }, 5000); // Remove the alert after 3 seconds
 }
+
+function gameAlertWin(message) {
+    const alertContainer = document.createElement('div');
+    alertContainer.classList.add('alert');
+    alertContainer.textContent = message;
+    document.body.appendChild(alertContainer);
+
+    setTimeout(() => {
+        alertContainer.remove();
+    }, 4000); // Remove the alert after 3 seconds
+}
+
+function gameAlert(message) {
+    const alertContainer = document.createElement('div');
+    alertContainer.classList.add('alert');
+    alertContainer.textContent = message;
+    document.body.appendChild(alertContainer);
+
+    setTimeout(() => {
+        alertContainer.remove();
+    }, 2000); // Remove the alert after 3 seconds
+}
+
 
 function resetGame() {
     isPlayerTurn = true;
@@ -301,7 +332,7 @@ function resetGame() {
         isPlayerTurn = true;
     }
 
-    alert("The game has restarted. Please place your ships!")
+    gameAlertIntro("The game has restarted! Please place your 6 ships on the grid to start.")
 
 }
 
