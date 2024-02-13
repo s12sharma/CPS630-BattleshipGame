@@ -1,3 +1,4 @@
+// Declare variables to store game state
 let playerGrid; 
 let pcGrid;
 let isPlayerTurn = true; 
@@ -8,23 +9,28 @@ let pcMisses = 0;
 let hitSound = document.getElementById('hit-sound');
 let missSound = document.getElementById('miss-sound');
 
+// When the DOM content is loaded
 document.addEventListener('DOMContentLoaded', () => {
     gameAlertIntro("Welcome to Battleship! Please place your 6 ships on the grid to start the game. The PC has also hidden 6 ships.")
+    let shipsPlaced = 0; 
+    // Get the user and PC game boards
     const userBoard = document.getElementById('user-board');
     const pcBoard = document.getElementById('pc-board');
 
+    // Create player and PC grids
     playerGrid = createGrid(userBoard, 'player');
     pcGrid = createGrid(pcBoard, 'pc'); 
     
-     placeShipsRandomly(pcGrid, 6);
+    // Place 6 ships randomly on PC grid
+    placeShipsRandomly(pcGrid, 6);
 
+    // Add event listeners for ships drag and drop functionality
     const ships = document.querySelectorAll('.ship');
     ships.forEach(ship => {
         ship.addEventListener('dragstart', dragStart);
     });
 
-    let shipsPlaced = 0; 
-
+    // Add event listeners for player grid cells
     playerGrid.forEach(row => {
         row.forEach(cell => {
             cell.addEventListener('dragover', dragOver);
@@ -50,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function dragLeave() {
         this.classList.remove('hovered');
     }
-
+    // Function to handle ship drop
     function drop(e) {
         e.preventDefault();
         const shipId = e.dataTransfer.getData('text/plain');
@@ -77,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.classList.remove('hovered');
     }
     
+    // Function to get cell position
     function getCellPosition(e) {
         const cell = e.target.closest('.cell');
         const row = parseInt(cell.dataset.row);
@@ -84,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return { row, col };
     }
 
+    // Function to create a grid
     function createGrid(board, playerClass) {
         const grid = [];
         for (let i = 0; i < 10; i++) {
@@ -101,10 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return grid;
     }
 
+    // Add event listener for the reset button
     const resetButton = document.getElementById('reset-btn');
     resetButton.addEventListener('click', resetGame);
 });
 
+// Function to start the game
 function startGame(playerGrid, pcGrid) {
     pcGrid.forEach((row, rowIndex) => {
         row.forEach((cell, colIndex) => {
@@ -135,6 +145,7 @@ function startGame(playerGrid, pcGrid) {
     });
 }
 
+// Function to handle player's turn
 function handlePlayerTurn(row, col, pcGrid) {
     const cell = pcGrid[row][col];
     const hasHiddenShip = cell.classList.contains('hidden-ship');
@@ -167,8 +178,7 @@ function handlePlayerTurn(row, col, pcGrid) {
     isPlayerMoveMade = true;
 }
 
-
-
+// Function to handle PC's turn
 function handlePCTurn(playerGrid) {
     let isHit = false;
     let randomRow, randomCol;
@@ -203,8 +213,7 @@ function handlePCTurn(playerGrid) {
     cell.classList.add('visited');
 }
 
-
-
+// Function to check if all hidden ships are found
 function checkAllHiddenShipsFound(pcGrid) {
     for (let row of pcGrid) {
         for (let cell of row) {
@@ -216,6 +225,7 @@ function checkAllHiddenShipsFound(pcGrid) {
     return true; // All hidden ships have been found
 }
 
+// Function to check if all player's ships are sunk
 function checkAllPlayerShipsSunk(playerGrid) {
     for (let row of playerGrid) {
         for (let cell of row) {
@@ -227,10 +237,12 @@ function checkAllPlayerShipsSunk(playerGrid) {
     return true;
 }
 
+// Function to check if player's and PC's moves are equal
 function checkEqual() {
     return playerHits + playerMisses === pcHits + pcMisses;
 }
 
+// Function to place ships randomly on the grid
 function placeShipsRandomly(grid, numberOfShips) {
     for (let i = 0; i < numberOfShips; i++) {
         let randomRow, randomCol;
@@ -242,6 +254,7 @@ function placeShipsRandomly(grid, numberOfShips) {
     }
 }
 
+// Function to disable all click events on the grid
 function disableAllClickEvents(grid) {
     grid.forEach((row) => {
         row.forEach((cell) => {
@@ -250,7 +263,7 @@ function disableAllClickEvents(grid) {
     });
 }
 
-
+// Function to update hit/miss counters
 function updateHitMissCounters() {
     const playerHitsElement = document.getElementById('player-hits');
     const playerMissesElement = document.getElementById('player-misses');
@@ -263,6 +276,7 @@ function updateHitMissCounters() {
     pcMissesElement.textContent = `PC Misses: ${pcMisses}`;
 }
 
+// Function to show introductory/reset message
 function gameAlertIntro(message) {
     const alertContainer = document.createElement('div');
     alertContainer.classList.add('alert');
@@ -271,9 +285,10 @@ function gameAlertIntro(message) {
 
     setTimeout(() => {
         alertContainer.remove();
-    }, 6000); // Remove the alert after 3 seconds
+    }, 6000); // Remove the alert after 6 seconds
 }
 
+// Function to show win message
 function gameAlertWin(message) {
     const alertContainer = document.createElement('div');
     alertContainer.classList.add('alert');
@@ -285,9 +300,10 @@ function gameAlertWin(message) {
 
     setTimeout(() => {
         alertContainer.remove();
-    }, 5000); // Remove the alert after 3 seconds
+    }, 5000); // Remove the alert after 5 seconds
 }
 
+// Function to show regular message
 function gameAlert(message) {
     const alertContainer = document.createElement('div');
     alertContainer.classList.add('alert');
@@ -296,10 +312,10 @@ function gameAlert(message) {
 
     setTimeout(() => {
         alertContainer.remove();
-    }, 2000); // Remove the alert after 3 seconds
+    }, 2000); // Remove the alert after 2 seconds
 }
 
-
+// Function to reset the game
 function resetGame() {
     document.getElementById('reset-btn').style.display = 'none';
     isPlayerTurn = true;
@@ -340,6 +356,7 @@ function resetGame() {
 
 }
 
+// Function to clear the grid
 function clearGrid(grid) {
     grid.forEach(row => {
         row.forEach(cell => {

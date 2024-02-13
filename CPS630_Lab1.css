@@ -1,10 +1,11 @@
+/* Set up basic styles for the body */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #bae1ff;
+  background-color: #bae1ff; /* Light blue background color */
 }
 
 /* Style the reset button */
@@ -30,11 +31,13 @@ body {
 }
 
 
+/* Container for the entire game */
 .game-container {
   display: flex;
   align-items: center; 
 }
 
+/* Styles for the game board */
 .board {
   display: grid;
   grid-template-columns: repeat(10, 30px);
@@ -42,26 +45,29 @@ body {
   gap: 2px;
   border: 1px solid #000;
   margin: 10px;
-  background-color: white;
+  background-color: white; /* White background color for the grid */
 }
 
-/* Add styles for grid headings */
+/* Styles for grid headings */
 .grid-heading {
   font-size: 20px;
   text-align: center;
   margin-bottom: 10px;
 }
 
+/* Container for each board */
 .board-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Styles for hit/miss counters */
 .counters {
   margin-top: 10px; 
 }
 
+/* Styles for each cell in the grid */
 .cell {
   width: 30px;
   height: 30px;
@@ -72,10 +78,11 @@ body {
   align-items: center;
 }
 
+/* Styles for ships */
 .ship {
   width: 30px; /* Adjust width to match the image */
   height: 30px; /* Adjust height to match the image */
-  background-image: url('https://i.pinimg.com/474x/6d/8b/f5/6d8bf5580b0fa7c81ced50b53d5c8247.jpg');
+  background-image: url('https://i.pinimg.com/474x/6d/8b/f5/6d8bf5580b0fa7c81ced50b53d5c8247.jpg'); /* URL of the ship image */
   background-size: cover; /* Ensure the background image covers the entire element */
   background-repeat: no-repeat; /* Prevent background image from repeating */
   margin: 2px;
@@ -83,41 +90,28 @@ body {
   position: relative; /* Ensure relative positioning for the ships */
 }
 
-
+/* Styles for the hovered cell */
 .hovered {
   border: 2px dashed #000;
 }
 
-.cell {
-  position: relative; /* Ensure relative positioning for the ships */
-}
+/* Adjust styles for cells with hits */
 .cell.hit {
   background-image: none !important; /* Remove background image */
   background-color: green !important; /* Change background color to green */
 }
 
+/* Hide ship image for cells with hits */
 .cell.hit .ship {
   display: none; /* Hide the ship image */
 }
 
-
-.cell .ship {
-  position: absolute; /* Position ships absolutely within cells */
-  pointer-events: none; /* Allow clicking on the cell beneath the ship */
-}
-
-
-.cell.hit .ship,
-.cell.hidden-ship.hit .ship {
-  background-color: green; /* Adjust specificity for consistency */
-}
-
-
-
+/* Adjust styles for cells with misses */
 .miss {
-  background-color: red;
+  background-color: red; /* Red background color for misses */
 }
 
+/* Styles for general buttons */
 button {
   margin-top: 10px;
   padding: 5px 10px;
@@ -125,6 +119,7 @@ button {
   text-align: center;
 }
 
+/* Container for buttons */
 .button-container {
   position: absolute;
   top: 15%;
@@ -132,18 +127,18 @@ button {
   transform: translate(-50%, -50%);
 }
 
+/* Styles for player cells */
 .player-cell {
   cursor: not-allowed;
   pointer-events: none;
   user-select: none;
 }
 
-
-/* Add custom styles for pop-up messages */
+/* Custom styles for pop-up messages */
 .alert {
   font-size: 20px;
   padding: 20px;
-  background-color: #305e93; /* Red background color */
+  background-color: #305e93; /* Dark blue background color for alerts */
   color: white;
   text-align: center;
   border-radius: 10px;
@@ -153,4 +148,3 @@ button {
   left: 50%; /* Center the alert horizontally */
   transform: translateX(-50%); /* Center the alert horizontally */
 }
-

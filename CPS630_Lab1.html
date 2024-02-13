@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="CPS630_Lab1.css">
+  <link rel="stylesheet" href="CPS630_Lab1.css"> <!-- Link to external CSS file -->
   <title>Battleship Game</title>
 </head>
 <body>
   <div class="game-container">
     <div class="button-container">
+      <!-- Button for restarting the game, initially hidden -->
       <button id="reset-btn" style="display: none;">Restart Game</button>
     </div>
     <div class="ships-container">
+      <!-- Ships that can be dragged and dropped onto the game board -->
       <div class="ship" id="ship1" draggable="true"></div>
       <div class="ship" id="ship2" draggable="true"></div>
       <div class="ship" id="ship3" draggable="true"></div>
@@ -20,29 +22,31 @@
       <div class="ship" id="ship6" draggable="true"></div>
     </div>
   
+    <!-- Container for the player's game board -->
     <div class="board-container">
-      <h2 class="grid-heading">Player Grid</h2>
-      <div class="board" id="user-board"></div>
+      <h2 class="grid-heading">Player Grid</h2> <!-- Heading for the player's grid -->
+      <div class="board" id="user-board"></div> <!-- Player's game board -->
       <div class="counters">
-        <p id="pc-hits">PC Hits: 0</p>
-        <p id="pc-misses">PC Misses: 0</p>
+        <p id="pc-hits">PC Hits: 0</p> <!-- Counter for PC's hits -->
+        <p id="pc-misses">PC Misses: 0</p> <!-- Counter for PC's misses -->
       </div>
     </div>
+    <!-- Container for the PC's game board -->
     <div class="board-container">
-      <h2 class="grid-heading">PC Grid</h2>
-      <div class="board" id="pc-board"></div>
+      <h2 class="grid-heading">PC Grid</h2> <!-- Heading for the PC's grid -->
+      <div class="board" id="pc-board"></div> <!-- PC's game board -->
       <div class="counters">
-        <p id="player-hits">Player Hits: 0</p>
-        <p id="player-misses">Player Misses: 0</p>
+        <p id="player-hits">Player Hits: 0</p> <!-- Counter for player's hits -->
+        <p id="player-misses">Player Misses: 0</p> <!-- Counter for player's misses -->
       </div>
     </div>
     
   </div>
 
-  <!-- Add audio elements for hit and miss sounds -->
+  <!-- Audio elements for hit and miss sounds -->
   <audio id="hit-sound" src="hit-sound.wav"></audio>
   <audio id="miss-sound" src="miss-sound.mp3"></audio>
   
-  <script src="CPS630_Lab1.js"></script>
+  <script src="CPS630_Lab1.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
