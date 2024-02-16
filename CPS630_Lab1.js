@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Handle the drag and drop 
     function dragStart(e) {
         e.dataTransfer.setData('text/plain', e.target.id);
     }
@@ -150,12 +151,12 @@ function handlePlayerTurn(row, col, pcGrid) {
     const cell = pcGrid[row][col];
     const hasHiddenShip = cell.classList.contains('hidden-ship');
     const hasVisited = cell.classList.contains('visited');
-
+    // Check if location has already been bombed
     if (hasVisited) {
         gameAlert("This location has already been bombed. Please select another.")
         return;
     }
-
+    // Check if bomb placement is a hit or miss
     if (hasHiddenShip) {
         cell.classList.add('hit');
         playerHits++;
@@ -173,7 +174,7 @@ function handlePlayerTurn(row, col, pcGrid) {
         updateHitMissCounters();
         missSound.play(); // Play miss sound
     }
-
+    
     cell.classList.add('visited');
     isPlayerMoveMade = true;
 }
@@ -182,6 +183,7 @@ function handlePlayerTurn(row, col, pcGrid) {
 function handlePCTurn(playerGrid) {
     let isHit = false;
     let randomRow, randomCol;
+    // Randomly select a cell on the grid to place the bomb
     do {
         randomRow = Math.floor(Math.random() * 10);
         randomCol = Math.floor(Math.random() * 10);
@@ -190,7 +192,7 @@ function handlePCTurn(playerGrid) {
     } while (!isHit && playerGrid[randomRow][randomCol].classList.contains('visited'));
 
     const cell = playerGrid[randomRow][randomCol];
-
+    // Check if the bomb placement is a hit or miss
     if (isHit) {
         cell.classList.add('hit');
         pcHits++;

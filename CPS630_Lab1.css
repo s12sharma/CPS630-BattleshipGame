@@ -5,12 +5,12 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #bae1ff; /* Light blue background color */
+  background-color: #bae1ff;
 }
 
 /* Style the reset button */
 #reset-btn {
-  background-color: #305e93; /* Green background color */
+  background-color: #305e93; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -27,7 +27,7 @@ body {
 
 /* Change button color on hover */
 #reset-btn:hover {
-  background-color: #7a9aae; /* Darker green */
+  background-color: #7a9aae; 
 }
 
 
@@ -45,7 +45,7 @@ body {
   gap: 2px;
   border: 1px solid #000;
   margin: 10px;
-  background-color: white; /* White background color for the grid */
+  background-color: white; 
 }
 
 /* Styles for grid headings */
@@ -97,8 +97,8 @@ body {
 
 /* Adjust styles for cells with hits */
 .cell.hit {
-  background-image: none !important; /* Remove background image */
-  background-color: green !important; /* Change background color to green */
+  background-image: none !important;
+  background-color: green !important; 
 }
 
 /* Hide ship image for cells with hits */
@@ -108,7 +108,7 @@ body {
 
 /* Adjust styles for cells with misses */
 .miss {
-  background-color: red; /* Red background color for misses */
+  background-color: red; 
 }
 
 /* Styles for general buttons */
@@ -138,13 +138,13 @@ button {
 .alert {
   font-size: 20px;
   padding: 20px;
-  background-color: #305e93; /* Dark blue background color for alerts */
+  background-color: #305e93; 
   color: white;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: fixed; /* Position the alert fixed */
-  bottom: 20px; /* Distance from the bottom of the page */
-  left: 50%; /* Center the alert horizontally */
-  transform: translateX(-50%); /* Center the alert horizontally */
+  position: fixed; 
+  bottom: 20px;
+  left: 50%; 
+  transform: translateX(-50%); 
 }
